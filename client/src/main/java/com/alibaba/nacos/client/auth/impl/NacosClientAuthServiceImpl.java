@@ -59,8 +59,8 @@ public class NacosClientAuthServiceImpl extends AbstractClientAuthService {
      * A context to take with when sending request to Nacos server.
      */
     private volatile LoginIdentityContext loginIdentityContext = new LoginIdentityContext();
-
-
+    
+    
     /**
      * Login to servers.
      *
@@ -70,19 +70,18 @@ public class NacosClientAuthServiceImpl extends AbstractClientAuthService {
     @Override
     public Boolean login(Properties properties) {
         try {
-
             String nextRefreshTimeStr = loginIdentityContext.getParameter(NacosAuthLoginConstant.NEXTREFRESHTIME);
             long nextRefreshTime = NumberUtils.toLong(nextRefreshTimeStr, 0);
 
             if (System.currentTimeMillis() < nextRefreshTime) {
                 return true;
             }
-
+            
             if (StringUtils.isBlank(properties.getProperty(PropertyKeyConst.USERNAME))) {
                 loginIdentityContext.setParameter(NacosAuthLoginConstant.NEXTREFRESHTIME, "0");
                 return true;
             }
-
+            
             for (String server : this.serverList) {
                 HttpLoginProcessor httpLoginProcessor = new HttpLoginProcessor(nacosRestTemplate);
                 properties.setProperty(NacosAuthLoginConstant.SERVER, server);

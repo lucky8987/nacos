@@ -97,7 +97,6 @@ public class NamingGrpcClientProxy extends AbstractNamingClientProxy {
     public NamingGrpcClientProxy(String namespaceId, SecurityProxy securityProxy, ServerListFactory serverListFactory,
             NacosClientProperties properties, ServiceInfoHolder serviceInfoHolder) throws NacosException {
         super(securityProxy);
-        securityProxy.login(properties.asProperties());
         this.namespaceId = namespaceId;
         this.uuid = UUID.randomUUID().toString();
         this.requestTimeout = Long.parseLong(properties.getProperty(CommonParams.NAMING_REQUEST_TIMEOUT, "-1"));

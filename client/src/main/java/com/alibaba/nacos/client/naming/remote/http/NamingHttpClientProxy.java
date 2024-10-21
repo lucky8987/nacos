@@ -74,7 +74,7 @@ public class NamingHttpClientProxy extends AbstractNamingClientProxy {
     private static final int DEFAULT_SERVER_PORT = 8848;
     
     private static final String MODULE_NAME = "Naming";
-
+    
     private static final String IP_PARAM = "ip";
     
     private static final String PORT_PARAM = "port";
@@ -441,7 +441,7 @@ public class NamingHttpClientProxy extends AbstractNamingClientProxy {
             if (HttpStatus.SC_NOT_MODIFIED == restResult.getCode()) {
                 return StringUtils.EMPTY;
             }
-
+            
             // If the 403 login operation is triggered, refresh the accessToken of the client
             if (NacosAuthLoginConstant.RELOGIN_CODE == restResult.getCode()) {
                 reLogin();

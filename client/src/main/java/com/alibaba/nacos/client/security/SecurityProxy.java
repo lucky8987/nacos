@@ -39,8 +39,6 @@ import java.util.Properties;
 public class SecurityProxy implements Closeable {
     
     private ClientAuthPluginManager clientAuthPluginManager;
-
-    private Properties properties;
     
     /**
      * Construct from serverList, nacosRestTemplate, init client auth plugin.
@@ -60,7 +58,6 @@ public class SecurityProxy implements Closeable {
      * @param properties login identity information.
      */
     public void login(Properties properties) {
-        this.properties = properties;
         if (clientAuthPluginManager.getAuthServiceSpiImplSet().isEmpty()) {
             return;
         }
@@ -89,7 +86,7 @@ public class SecurityProxy implements Closeable {
     public void shutdown() throws NacosException {
         clientAuthPluginManager.shutdown();
     }
-
+    
     /**
      * Login again to refresh the accessToken.
      */

@@ -237,7 +237,7 @@ class NacosClientAuthServiceImplTest {
         //when
         assertFalse(nacosClientAuthService.login(properties));
     }
-
+    
     @Test
     void testNextRefreshTime() throws Exception {
         NacosRestTemplate nacosRestTemplate = mock(NacosRestTemplate.class);

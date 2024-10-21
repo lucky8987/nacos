@@ -709,7 +709,7 @@ class NamingGrpcClientProxyTest {
         String appName = config.labels().get(Constants.APPNAME);
         assertNotNull(appName);
     }
-
+    
     @Test
     void testResponseCode403Exception() throws NacosException {
         Throwable exception = assertThrows(NacosException.class, () -> {

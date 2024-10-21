@@ -645,7 +645,7 @@ class NamingHttpClientProxyTest {
         });
         
     }
-
+    
     @Test
     void testCallServerFail403() throws Exception {
         //given

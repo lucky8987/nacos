@@ -102,7 +102,7 @@ class SecurityProxyTest {
         Map<String, String> header = securityProxy.getIdentityContext(new RequestResource());
         assertTrue(header.isEmpty());
     }
-
+    
     @Test
     void testReLogin() throws NoSuchFieldException, IllegalAccessException {
         NacosClientAuthServiceImpl authService = new NacosClientAuthServiceImpl();
